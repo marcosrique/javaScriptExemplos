@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="vistewport" content="width=device-width, initial-scale=1.0">
+    <title>Método  setinterval</title>
+    <script>
+        var cont = 0;
+
+        function atualiza(){
+            cont++;
+            var el = document.getElementById("contador");
+            el.innerHTML = cont; 
+        }
+
+        var timer;
+        function ligaTimer(){
+            timer = setInterval(atualiza, 1000);
+            var bt_liga = document.getElementById("liga");
+            bt_liga.disabled = true;
+            var bt_liga = document.getElementById("desliga");
+            bt_desliga.disabled = false;
+        }
+
+        function desligaTimer(){
+            clearInterval(timer);
+            var bt_liga = document.getElementById("liga");
+            bt_liga.disabled = false;
+            var bt_desliga = document.getElementById("desliga");
+            bt_desliga.disabled = true;
+        }
+    </script>
+
+</head>
+<body>
+    <h3>Contador: <span id="contador">0</span></h3>
+    <button id="liga" onclick="ligaTimer()">Liga Timer</button>
+    <button id="desliga" onclick="desligaTimer()">Desligar Timer</button>
+</body>
+</html>
